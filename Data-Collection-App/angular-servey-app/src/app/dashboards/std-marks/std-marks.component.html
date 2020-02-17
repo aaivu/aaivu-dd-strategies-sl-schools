@@ -1,0 +1,76 @@
+<div class="ui raised lift link three cards" *ngIf="user">
+  <div class="card" *ngFor="let sub of com_sub">
+    <div class="content">
+      <div class="header">{{sub}}</div>
+      <div class="description">
+        {{getInstructionSet(user['row_data'][sub + '_8'], user['predicted'][sub + '_mark'])}}
+      </div>
+    </div>
+    <div class="ui bottom attached button"
+         [class.color-A]="user['predicted'][sub + '_mark'] > 74"
+         [class.color-B]="user['predicted'][sub + '_mark'] < 75 && user['predicted'][sub + '_mark'] > 64"
+         [class.color-C]="user['predicted'][sub + '_mark'] < 65 && user['predicted'][sub + '_mark'] > 54"
+         [class.color-S]="user['predicted'][sub + '_mark'] < 55 && user['predicted'][sub + '_mark'] > 39"
+         [class.color-F]="user['predicted'][sub + '_mark'] < 40"
+         (click)="open(sub)">
+      More
+    </div>
+  </div>
+</div>
+
+
+<ng-template let-context let-modal="modal" #modalTemplate>
+  <div class="header">Past Marks Variation for {{context.data.sub}}</div>
+  <div class="content">
+    <div class="ui grid">
+      <div class="ten wide column">
+        <canvas id="myChart" width="350px" height="200px"></canvas>
+      </div>
+      <div class="six wide column">
+
+        <div class="ui icon message">
+          <i class="pencil alternate icon"></i>
+          <div class="content">
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 70">You can try while studying..</div>
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 40 && user['predicted'][context.data.sub + '_mark'] < 71">
+              You can focus on while studying..</div>
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] < 41">
+              You must do while studying..</div>
+            <p *ngFor="let x of context.data['inst']['study']">&bull; {{x}}</p>
+          </div>
+        </div>
+
+        <div class="ui icon message">
+          <i class="file alternate icon"></i>
+          <div class="content">
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 70">You can try in examination..</div>
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 40 && user['predicted'][context.data.sub + '_mark'] < 71">
+              You can focus in examination..</div>
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] < 41">
+              You must do in examination..</div>
+            <p *ngFor="let x of context.data['inst']['exam']">&bull; {{x}}</p>
+          </div>
+        </div>
+
+        <div class="ui icon message">
+          <i style="font-size: 32px;" class="handshake icon"></i>
+          <div class="content">
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 70">You can try while group work..</div>
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 40 && user['predicted'][context.data.sub + '_mark'] < 71">
+              You can focus on while group work..</div>
+            <div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] < 41">
+              You must do while group work..</div>
+            <p *ngFor="let x of context.data['inst']['group']">&bull; {{x}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui red button" (click)="modal.deny('denied')">Cancel</button>
+    <button class="ui green button" (click)="modal.approve('approved')" autofocus>OK</button>
+  </div>
+</ng-template>
+
+

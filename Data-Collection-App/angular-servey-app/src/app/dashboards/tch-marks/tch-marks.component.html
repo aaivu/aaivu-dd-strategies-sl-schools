@@ -1,0 +1,95 @@
+
+<div class="ui top attached segment" *ngIf="students && students.length === 0" style="height: 150px">
+  <div class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+</div>
+
+<div class="" *ngIf="!students || students.length !== 0" >
+  <div class="ui segments" *ngFor="let x of students" style="background: #e9f7e8">
+    <div class="ui horizontal segments" style="background: transparent">
+      <div class="ui ten wide column segment" style="background: transparent">
+        <b>Name: </b> {{x.name}}
+      </div>
+      <div class="ui six wide column segment" style="background: transparent">
+        <b>Learning Style: </b>{{getLearningStyleName(x['predicted']['learningStyle'])}}
+      </div>
+    </div>
+    <div class="ui bottom attached segment" style="background: transparent">
+      <a class="ui label" *ngFor="let s of com_sub"
+         [class.color-A]="x['predicted'][s + '_mark'] > 74"
+         [class.color-B]="x['predicted'][s + '_mark'] < 75 && x['predicted'][s + '_mark'] > 64"
+         [class.color-C]="x['predicted'][s + '_mark'] < 65 && x['predicted'][s + '_mark'] > 54"
+         [class.color-S]="x['predicted'][s + '_mark'] < 55 && x['predicted'][s + '_mark'] > 39"
+         [class.color-F]="x['predicted'][s + '_mark'] < 40"
+
+         (click)="openModal(s, x)"
+      > {{s}}
+        <div class="detail">{{
+          x['predicted'][s + '_mark'] > 75 ? 'A' :
+            x['predicted'][s + '_mark'] > 65 ? 'B' :
+            x['predicted'][s + '_mark'] > 55 ? 'C' :
+            x['predicted'][s + '_mark'] > 40 ? 'S' : 'F'
+          }}</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+<ng-template let-context let-modal="modal" #modalTemplate>
+  <div class="header">Past Marks Variation for {{context.data.sub}}</div>
+  <div class="content">
+    <div class="ui grid">
+      <div class="ten wide column">
+        <canvas id="myChart" width="350px" height="200px"></canvas>
+      </div>
+      <div class="six wide column">
+
+        <!--<div class="ui icon message">-->
+          <!--<i class="pencil alternate icon"></i>-->
+          <!--<div class="content">-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 70">You can try while studying..</div>-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 40 && user['predicted'][context.data.sub + '_mark'] < 71">-->
+              <!--You can focus on while studying..</div>-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] < 41">-->
+              <!--You must do while studying..</div>-->
+            <!--<p *ngFor="let x of context.data['inst']['study']">&bull; {{x}}</p>-->
+          <!--</div>-->
+        <!--</div>-->
+<!---->
+        <!--<div class="ui icon message">-->
+          <!--<i class="file alternate icon"></i>-->
+          <!--<div class="content">-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 70">You can try in examination..</div>-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 40 && user['predicted'][context.data.sub + '_mark'] < 71">-->
+              <!--You can focus in examination..</div>-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] < 41">-->
+              <!--You must do in examination..</div>-->
+            <!--<p *ngFor="let x of context.data['inst']['exam']">&bull; {{x}}</p>-->
+          <!--</div>-->
+        <!--</div>-->
+<!---->
+        <!--<div class="ui icon message">-->
+          <!--<i style="font-size: 32px;" class="handshake icon"></i>-->
+          <!--<div class="content">-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 70">You can try while group work..</div>-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] > 40 && user['predicted'][context.data.sub + '_mark'] < 71">-->
+              <!--You can focus on while group work..</div>-->
+            <!--<div class="header" *ngIf="user['predicted'][context.data.sub + '_mark'] < 41">-->
+              <!--You must do while group work..</div>-->
+            <!--<p *ngFor="let x of context.data['inst']['group']">&bull; {{x}}</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui red button" (click)="modal.deny('denied')">Cancel</button>
+    <button class="ui green button" (click)="modal.approve('approved')" autofocus>OK</button>
+  </div>
+</ng-template>
+
+

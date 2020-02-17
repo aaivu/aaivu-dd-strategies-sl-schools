@@ -1,0 +1,66 @@
+<div class="ui form bg">
+  <div class="field">
+
+    <div class="ui form">
+      <div class="grouped fields">
+        <div class="field">
+          <label>{{'q17' | translate}}</label>
+          <sui-checkbox [(ngModel)]="answers['q17'][x]" *ngFor="let x of [1,2,3,4,5,6,7,8,9]"
+          >{{'clubs.' + x | translate}}
+          </sui-checkbox>
+        </div>
+        <div class="three wide field">
+          <input type="text" placeholder="Additional" [(ngModel)]="answers.q17['new']">
+        </div>
+      </div>
+
+      <table class="ui compact celled definition table" *ngIf="hasAny()">
+        <thead>
+        <tr>
+          <th style="width: 500px;"></th>
+          <th style="width: 150px">{{'grades.6' | translate}}</th>
+          <th style="width: 150px">{{'grades.7' | translate}}</th>
+          <th style="width: 150px">{{'grades.8' | translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let y of getKeys()">
+          <td *ngIf="y !== 'new'">{{'clubs.' + y | translate}}</td>
+          <td *ngIf="y === 'new'">{{answers.q17[y]}}</td>
+          <td class="center aligned">
+            <i class="large checkmark icon" (click)="check(y, 6)" [class.violet]="clubSelector[y]?.g_6"></i>
+          </td>
+          <td class="center aligned">
+            <i class="large checkmark icon" (click)="check(y, 7)" [class.violet]="clubSelector[y]?.g_7"></i>
+          </td>
+          <td class="center aligned">
+            <i class="large checkmark icon" (click)="check(y, 8)" [class.violet]="clubSelector[y]?.g_8"></i>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="field">
+        <label>{{'q18' | translate}}</label>
+
+        <sui-checkbox [(ngModel)]="answers.q18[6]">{{'grades.6' | translate}}</sui-checkbox>
+        <sui-checkbox [(ngModel)]="answers.q18[7]">{{'grades.7' | translate}}</sui-checkbox>
+        <sui-checkbox [(ngModel)]="answers.q18[8]">{{'grades.8' | translate}}</sui-checkbox>
+
+      </div>
+    </div>
+
+    <div class="ui grid">
+      <div class="six wide column"></div>
+      <div class="four wide column align-center">
+        <div class="ui animated fluid big button violet blue nav" tabindex="0" routerLink="/student/data">
+          <div class="visible content">{{'finish' | translate}}</div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

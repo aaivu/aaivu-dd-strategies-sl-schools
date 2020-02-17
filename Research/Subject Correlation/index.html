@@ -1,0 +1,107 @@
+<html>
+<head>
+  <title>Network | Basic usage</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+  <style type="text/css">
+    #mynetwork {
+      width: 800px;
+      height: 800px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = [
+    {id: 2, label: 'First Language'},
+    {id: 4, label: 'Mathematics'},
+    {id: 5, label: 'Science'},
+    {id: 3, label: 'English Language'},
+    {id: 1, label: 'Religion'},
+    {id: 6, label: 'History'},
+    {id: 7, label: 'Citizenship Education'},
+    {id: 11, label: 'PTS'},
+    {id: 12, label: 'Art'},
+    {id: 10, label: 'Geography'},
+    {id: 9, label: 'Second Langauge'},
+    {id: 8, label: 'Health'}
+  ];
+
+  // create an array with edges
+  var edges_6 = [
+    {from: 1, to: 2, width:3},
+    {from: 1, to: 3, width:1},
+    {from: 1, to: 8, width:3},
+    {from: 2, to: 3, width:3},
+    {from: 2, to: 8, width:1},
+    {from: 2, to: 9, width:1},
+    {from: 2, to: 10, width:1},
+    {from: 2, to: 12, width:1},
+    {from: 3, to: 9, width:1},
+    {from: 4, to: 5, width:1},
+    {from: 5, to: 6, width:1},
+    {from: 5, to: 7, width:1},
+    {from: 5, to: 10, width:3},
+    {from: 7, to: 10, width:1},
+    {from: 8, to: 9, width:3},
+    {from: 9, to: 10, width:1}
+  ];
+
+    var edges_7 = [
+    {from: 1, to: 2, width:1},
+    {from: 1, to: 3, width:1},
+    {from: 1, to: 4, width:1},
+    {from: 1, to: 8, width:3},
+    {from: 1, to: 10, width:3},
+    {from: 1, to: 11, width:1},
+    {from: 2, to: 5, width:1},
+    {from: 2, to: 10, width:3},
+    {from: 3, to: 4, width:1},
+    {from: 3, to: 9, width:1},
+    {from: 4, to: 5, width:1},
+    {from: 4, to: 8, width:1},
+    {from: 4, to: 10, width:3},
+    {from: 5, to: 8, width:1},
+    {from: 5, to: 10, width:3},
+    {from: 7, to: 8, width:1},
+    {from: 8, to: 10, width:3}
+  ];
+
+    var edges_8 = [
+    {from: 1, to: 5, width:3},
+    {from: 1, to: 6, width:3},
+    {from: 1, to: 7, width:1},
+    {from: 3, to: 4, width:1},
+    {from: 3, to: 5, width:1},
+    {from: 3, to: 6, width:3},
+    {from: 3, to: 10, width:3},
+    {from: 5, to: 6, width:3},
+    {from: 5, to: 7, width:1},
+    {from: 5, to: 8, width:1},
+    {from: 6, to: 7, width:1},
+    {from: 6, to: 10, width:3},
+    {from: 6, to: 11, width:1},
+    {from: 7, to: 8, width:3}
+  ];
+
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges_7
+  };
+  var options = {};
+  var network = new vis.Network(container, data, options);
+</script>
+
+</body>
+</html>

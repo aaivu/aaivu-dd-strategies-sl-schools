@@ -1,0 +1,43 @@
+<div class="ui centered grid" style="padding-top: 20px">
+  <div class="eight wide column">
+    <div class="ui raised segment">
+      <div class="ui form">
+        <div class="field">
+          <label>User Name</label>
+          <input type="text" name="user-name" [(ngModel)]="user.username" placeholder="User Name">
+        </div>
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="name" [(ngModel)]="user.name" placeholder="Name">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password">
+        </div>
+        <div class="field">
+          <label>Confirm</label>
+          <input type="password" name="confirm" [(ngModel)]="user.confirm" placeholder="Confirm Password">
+        </div>
+
+        <div class="field">
+          <label>Type</label>
+          <sui-select class="selection"
+                      [(ngModel)]="user.type"
+                      [options]="options"
+                      labelField="name"
+                      name="type"
+                      #select>
+            <sui-select-option *ngFor="let option of options"
+                               [value]="option">
+            </sui-select-option>
+          </sui-select>
+        </div>
+        <button class="ui button fluid" type="submit" (click)="submit_form()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

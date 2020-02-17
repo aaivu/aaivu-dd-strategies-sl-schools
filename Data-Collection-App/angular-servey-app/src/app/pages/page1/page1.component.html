@@ -1,0 +1,42 @@
+<div class="ui form bg">
+  <div class="field">
+    <div class="one field">
+      <div class="field">
+        <label>{{'q2' | translate}}</label>
+        <input type="text" [(ngModel)]="answers.q2" placeholder="{{'q2' | translate}}">
+      </div>
+    </div>
+    <div class="two fields">
+
+      <div class="field">
+        <label>{{'q1' | translate}}</label>
+        <input type="text" [(ngModel)]="answers.q1" placeholder="{{'q1' | translate}}">
+      </div>
+      <div class="field">
+        <label>{{'q3' | translate}}</label>
+        <sui-select class="selection"
+                    [(ngModel)]="answers.q3"
+                    placeholder="{{'q3' | translate}}"
+                    #formatted>
+          <sui-select-option *ngFor="let o of [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019]"
+                             [value]="o"></sui-select-option>
+        </sui-select>
+      </div>
+    </div>
+
+
+
+    <div class="ui grid">
+      <div class="six wide column"></div>
+      <div class="four wide column align-center">
+        <div class="ui animated fluid big button violet blue nav" tabindex="0" routerLink="../2">
+          <div class="visible content">{{'next' | translate}}</div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

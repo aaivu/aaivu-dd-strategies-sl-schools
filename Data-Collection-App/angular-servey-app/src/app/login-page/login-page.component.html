@@ -1,0 +1,22 @@
+<div class="ui centered grid" style="padding-top: 20px">
+  <div class="eight wide column">
+    <h1 class="ui header" style="text-align: center; font-size: 45px">
+      SOFIA
+      <div class="sub header">by Delos Labs</div>
+    </h1>
+    <div class="ui raised segment">
+      <div class="ui form">
+        <div class="field">
+          <label>User Name</label>
+          <input type="text" name="user-name" [(ngModel)]="login.username" placeholder="User Name">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password" [(ngModel)]="login.password" placeholder="Password">
+        </div>
+        <button class="ui button" type="submit" (click)="submit_form()">Submit</button>
+      </div>
+    </div>
+    <div class="ui segment red">Sorry, This site is under scheduled maintains. Please contact admin.</div>
+  </div>
+</div>

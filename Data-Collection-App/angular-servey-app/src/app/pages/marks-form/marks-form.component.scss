@@ -1,0 +1,19 @@
+input {
+  width: 100%;
+  padding: 0.478571em 0.5em !important;
+}
+
+.ui.compact.table td {
+  padding: 0.2em 0.2em !important;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .ui.active.dimmer {
+    opacity: .8;
+  }
+}

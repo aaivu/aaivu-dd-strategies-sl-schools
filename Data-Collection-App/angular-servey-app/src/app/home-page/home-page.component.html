@@ -1,0 +1,81 @@
+<div class="ui container">
+  <div class="ui grid">
+    <div class="four wide column">
+      <!--<div>-->
+        <!--&lt;!&ndash;<img class="ui medium circular image" *ngIf="!currentUser.hasDP" src="">&ndash;&gt;-->
+        <!--<img class="ui medium circular image" style="width: 100px; margin: auto"-->
+             <!--src="../../assets/dummy.jpg">-->
+      <!--</div>-->
+      <!--<button class="fluid ui button">UPLOAD PICTURE</button>-->
+
+      <div class="ui raised segment">
+        <h1 class="ui header">
+          {{user ? user.name : ''}}
+          <div class="sub header">{{person | titlecase }}</div>
+        </h1>
+      </div>
+
+      <div class="ui fluid vertical pointing menu">
+        <!--<a class="item" *ngIf="person === 'student'" routerLink="std-dash">Dashboard</a>-->
+        <a class="item" *ngIf="person === 'teacher'" routerLink="tch-dash">Dashboard</a>
+        <a class="item" *ngIf="person === 'student'" routerLink="data">Fill Data</a>
+        <a class="item" *ngIf="person === 'student'" routerLink="std-marks">Next Term</a>
+        <a class="item" *ngIf="person === 'teacher'" routerLink="tch-marks">Subject Predictions</a>
+        <a class="item" *ngIf="person === 'teacher'" routerLink="correlation">Subject Relationship</a>
+        <a class="item" *ngIf="person === 'teacher'" routerLink="learning-styles">Learning Styles</a>
+      </div>
+
+      <div class="ui fluid vertical pointing menu">
+        <a class="item" routerLink="/login">Logout</a>
+      </div>
+
+    </div>
+    <div class="twelve wide column">
+      <div class="ui segments">
+        <!--personal-->
+        <div class="ui raised segment">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<ng-template let-context let-modal="modal" #picMod>-->
+  <!--<div class="header">Change Profile Picture</div>-->
+  <!--<div class="content">-->
+
+
+    <!--<input type="file" (change)="fileChangeEvent($event)" accept="image/*" style="display: none" id="imageup"/>-->
+
+    <!--<label for="imageup" class="ui button" tabindex="0">-->
+      <!--<i class="upload icon"></i>-->
+      <!--Select Image-->
+    <!--</label>-->
+
+    <!--<div class="two column ui grid">-->
+      <!--<div class="column">-->
+        <!--&lt;!&ndash;<image-cropper class="small"&ndash;&gt;-->
+                       <!--&lt;!&ndash;[imageChangedEvent]="imageChangedEvent"&ndash;&gt;-->
+                       <!--&lt;!&ndash;[maintainAspectRatio]="true"&ndash;&gt;-->
+                       <!--&lt;!&ndash;[aspectRatio]="1"&ndash;&gt;-->
+                       <!--&lt;!&ndash;format="jpg"&ndash;&gt;-->
+                       <!--&lt;!&ndash;(imageCroppedBase64)="imageCropped($event)"&ndash;&gt;-->
+                       <!--&lt;!&ndash;(imageLoaded)="imageLoaded()"&ndash;&gt;-->
+                       <!--&lt;!&ndash;(loadImageFailed)="loadImageFailed()"&ndash;&gt;-->
+        <!--&lt;!&ndash;&gt;</image-cropper>&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="column">-->
+        <!--<img style="width: 100%" [src]="croppedImage" />-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+
+
+  <!--</div>-->
+  <!--<div class="actions">-->
+    <!--<button class="ui red button" (click)="modal.deny(false)">Cancel</button>-->
+    <!--<button class="ui green button" (click)="modal.approve(true)" autofocus>SAVE</button>-->
+  <!--</div>-->
+<!--</ng-template>-->
