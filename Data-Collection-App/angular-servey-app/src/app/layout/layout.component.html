@@ -1,0 +1,38 @@
+<div fxLayout="column" class="page bg">
+  <div class="header bg" fxFlex="55px" fxLayout="row">
+    <div fxFlex="auto" fxLayout="row">
+      <div fxFlex="450px" class="title">{{title}}</div>
+
+      <div fxFlex="500px">
+        <div class="ui buttons">
+          <button class="ui button" *ngFor="let x of countArr" [routerLink]="[x]"
+                  routerLinkActive="violet">{{x}}</button>
+        </div>
+      </div>
+    </div>
+
+    <div fxFlex="200px">
+      <div class="three ui buttons">
+        <button (click)="changeLng('sin')" class="ui button">Sin</button>
+        <button (click)="changeLng('en')" class="ui button">Eng</button>
+        <button (click)="changeLng('tam')" class="ui button">Tam</button>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex="auto" style="overflow-y: auto;">
+
+    <div fxFlex="auto" class="body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="footer bg" fxFlex="50px">
+    Footer
+  </div>
+</div>
+
+
+
+
+

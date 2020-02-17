@@ -1,0 +1,64 @@
+<div class="ui raised two lift link cards">
+  <div class="card">
+    <div class="content">
+      <div class="header">Basic Information</div>
+      <div class="description">
+        Fill your subject details and the tuition you attended.
+      </div>
+    </div>
+    <div class="ui bottom attached button" [class.green]="user?.row_data?.basic" routerLink="subjects">
+      <i class="check icon"></i>
+      Fill
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <div class="header">Family</div>
+      <div class="description">
+        Fill your family information such as their education level and occupation
+      </div>
+    </div>
+    <div class="ui bottom attached button" [class.green]="user?.row_data?.family" routerLink="family">
+      <i class="check icon"></i>
+      Fill
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <div class="header">Extracurricular</div>
+      <div class="description">
+        Fill about the clubs or sports you participated.
+      </div>
+    </div>
+    <div class="ui bottom attached button" routerLink="extracurricular">
+      <i class="check icon"></i>
+      Fill
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <div class="header">Learning</div>
+      <div class="description">
+        There are 20 MCQ questions to evaluate how you learn
+      </div>
+    </div>
+    <div class="ui bottom attached button"  [class.green]="user?.row_data?.lci" routerLink="learning-style">
+      <i class="check icon"></i>
+      Fill
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="content">
+      <div class="header">Performance</div>
+      <div class="description">
+        Enter your all term test marks from grade 6 first term to grade 8 last 3rd term.
+      </div>
+    </div>
+    <div class="ui bottom attached button"  [class.green]="user?.row_data?.marks" routerLink="performance">
+      <i class="check icon"></i>
+      Fill
+    </div>
+  </div>
+
+</div>

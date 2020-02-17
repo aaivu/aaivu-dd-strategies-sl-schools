@@ -1,0 +1,97 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css');
+@import "~vis/dist/vis.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+/* You can add global styles to this file, and also import other style files */
+//
+/*
+* {
+  //font-family: Helvetica, sans-serif;
+  font-size: 19px;
+}
+*/
+
+.bg {
+  background: #efefef;
+}
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button.nav {
+  margin-top: 20px;
+}
+
+
+ //set semantic UI missings
+sui-checkbox {
+  margin-left: 10px;
+  label {
+    font-size: 15px!important;
+
+    &::before {
+      border-color: #5829bb!important;
+    }
+    &::after {
+      color: #5829bb!important;
+    }
+  }
+}
+
+.ui.radio.checkbox {
+  margin: 10px!important;
+  label {
+    font-size: 15px!important;
+
+    &::before {
+      border-color: #5829bb!important;
+    }
+    &::after {
+      background-color: #5829bb!important;
+    }
+  }
+}
+
+.checkmark.icon {
+  color: #edecec;
+}
+
+
+.color-A {
+  background-color: #03b500 !important;
+}
+
+.color-B {
+  background-color: #96fc8a !important;
+}
+
+.color-C {
+  background-color: #fff600 !important;
+}
+
+.color-S {
+  background-color: #ffb4b4 !important;
+}
+
+.color-F {
+  background-color: #ff5a5a !important;
+}
+
+
+.vis-network {
+  canvas {
+    width: 800px;
+    height: 800px;
+  }
+}
+
+body {
+  padding-top: 10px;
+}
+

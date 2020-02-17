@@ -1,0 +1,31 @@
+<div class="ui top attached segment" *ngIf="loading" style="height: 150px">
+  <div class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+</div>
+
+<div class="ui grid centered">
+  <div class="six wide column">
+    <div class="ui raised segment">
+      <div class="ui disabled header">
+        Students' Learning Style Composition
+      </div>
+      <canvas id="myChart" width="400px" height="400px"></canvas>
+    </div>
+  </div>
+</div>
+<div class="ui raised segment">
+  <div class="ui disable header">
+    Students' Predicted Performance
+  </div>
+  <div class="ui grid">
+    <div class="four wide column" *ngFor="let x of com_sub">
+      <div class="six wide column">
+        <h3>{{x}}</h3>
+        <canvas id="{{x}}Chart" width="100%" height="80px"></canvas>
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+<div class="ui form bg">
+  <div class="ui form">
+    <div class="field" *ngFor="let x of [6,7,8,9,10]">
+      <label>{{x}}) {{'lsc.lci_' + x | translate}}</label>
+
+      <sui-radio-button *ngFor="let y of [1,2,3,4,5,6]"
+                        name="lci_{{x}}" value="val_{{y}}"
+                        [(ngModel)]="answers[x]">
+        {{'lsc.lci_answers_' + y | translate }}
+      </sui-radio-button>
+
+    </div>
+  </div>
+
+  <div class="ui grid">
+    <div class="six wide column"></div>
+    <div class="four wide column align-center">
+      <div class="ui animated fluid button violet blue nav" tabindex="0" (click)="done()">
+        <div class="visible content">{{'next' | translate}}</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="ui form bg">
+  <div class="two fields">
+    <div class="field">
+      <label>{{'q12' | translate}}</label>
+      <input type="text" placeholder="{{'q12' | translate}}" [(ngModel)]="answers.fa_o">
+    </div>
+
+    <div class="field">
+      <label>{{'q11' | translate}}</label>
+      <sui-select class="selection"
+                  [(ngModel)]="answers.fa_e"
+                  placeholder="{{'q11' | translate}}"
+                  #formatted>
+        <sui-select-option *ngFor="let o of [1,2,3,4]"
+                           value="{{'edu_level.' + o | translate}}"></sui-select-option>
+      </sui-select>
+    </div>
+
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label>{{'q14' | translate}}</label>
+      <input type="text" [(ngModel)]="answers.ma_o" placeholder="{{'q14' | translate}}">
+    </div>
+
+    <div class="field">
+      <label>{{'q13' | translate}}</label>
+      <sui-select class="selection"
+                  [(ngModel)]="answers.ma_e"
+                  placeholder="{{'q13' | translate}}"
+                  #formatted>
+        <sui-select-option *ngFor="let o of [1,2,3,4]"
+                           value="{{'edu_level.' + o | translate}}"></sui-select-option>
+      </sui-select>
+    </div>
+
+
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label>{{'q15' | translate}}</label>
+      <input type="number" max="5" min="0" [(ngModel)]="answers.sib" placeholder="{{'q15' | translate}}">
+    </div>
+
+    <div class="field">
+      <label>{{'q15_2' | translate}}</label>
+      <div class="ui grid">
+        <div class="row" *ngFor="let x of getTheArray();let i = index">
+          <div class="one wide column">{{i + 1}}</div>
+          <div class="fifteen wide column">
+            <sui-select class="selection"
+                        [(ngModel)]="answers.sib_edu[i]"
+                        placeholder="{{'q15_2' | translate}}"
+                        #formatted>
+              <sui-select-option *ngFor="let o of [1,2,3,4]"
+                                 value="{{'edu_level.' + o | translate}}"></sui-select-option>
+            </sui-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="ui grid">
+    <div class="six wide column"></div>
+    <div class="four wide column align-center">
+      <div class="ui animated fluid big button violet blue nav" tabindex="0" (click)="done()">
+        <div class="visible content">{{'finish' | translate}}</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
